@@ -23,18 +23,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
-    <div class="position-relative" style="display: none;" id="cardbro">
+<div class="position-relative" id="cardbro" style="display: none">
     <div class="card position-absolute translate-middle start-50" style="width: 90%; top:40vh; z-index: 1000;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+        <img src="images/123.jfif" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Развязались шнурки</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button" class="btn btn-primary float-left" id="close-cardbro">Закрыть</button><button type="button" class="btn btn-primary float-right">Отозваться</button>
+        </div>
+    </div>
 </div>  
     <button class="navbar-toggler position-absolute bg-primary" style="z-index: 1000; left:2.7%;top: 2%" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon asdasd"></span>
@@ -115,15 +117,21 @@ var myIcon2 = DG.icon({
     shadowSize: [70, 70],
     shadowAnchor: [22, 55]
 });
-marker1 = DG.marker([62.02105,129.703027], {icon: myIcon}).addTo(map);
-marker2 = DG.marker([62.019057, 129.706714], {icon: myIcon2}).addTo(map);
+var myIcon3 = DG.icon({
+    iconUrl: 'images/point.png',
+    iconRetinaUrl: 'images/point.png',
+    iconSize: [43, 43],
+    iconAnchor: [0, 0],
+    popupAnchor: [-3, -76],
+});
+marker1 = DG.marker([62.02105,129.703027], {icon: myIcon}).on('click', function() {
+      $( "#cardbro" ).show( );}).addTo(map);
+marker2 = DG.marker([62.019057, 129.706714], {icon: myIcon2}).on('click', function() {
+      $( "#cardbro" ).show( );}).addTo(map);
+marker3 = DG.marker([62.01807, 129.701399], {icon: myIcon3}).addTo(map);
 
-group = DG.featureGroup(marker1,marker2);
-group.addTo(map);
-group.on('click', (e) => {
-    $( "#cardbro" ).show( "slow", function() {
-        // Animation complete.
-      });
+$( "#close-cardbro" ).click(function() {
+  $( "#cardbro" ).hide( );
 });
 });
 </script>
