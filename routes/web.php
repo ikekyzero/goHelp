@@ -13,6 +13,7 @@ Route::post('/session/{session}/clear', 'ChatController@clear');
 Route::post('/session/{session}/block', 'BlockController@block');
 Route::post('/session/{session}/unblock', 'BlockController@unblock');
 Route::post('/send/{session}', 'ChatController@send');
+Route::get('/profile', 'HomeController@profile');
 
 Auth::routes();
 

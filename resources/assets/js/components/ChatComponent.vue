@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-3">
+            <div class="col-12">
                 <div class="card card-default">
                     <div class="card-header">
-                        Private Chat App
+                        Чат
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item"
