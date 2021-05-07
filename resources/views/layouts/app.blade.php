@@ -25,9 +25,19 @@
 </head>
 
 <body>
-<button type="button" class="btn btn-primary position-absolute" style="z-index: 100" id="sidebar-btn">Primary</button>
-<div class="d-flex flex-column bg-light w-100 position-absolute" style="z-index: 100;height: 100%; left:-10000px" id="sidebar">
-    <div id="app">
+    <div class="card position-absolute  top-50 start-50 translate-middle" style="width: 18rem; z-index: 1000;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+    <button class="navbar-toggler position-absolute bg-primary" style="z-index: 1000; left:2.7%;top: 2%" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon asdasd"></span>
+    </button>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top position-absolute">
+    <div class="collapse navbar-collapse bg-white w-100" style="height: 100vh;" id="navbarCollapse"><div id="app" style="width: 100%; height: 100%;">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <!--<a class="navbar-brand" href="{{ url('/') }}">
@@ -59,7 +69,9 @@
                         </li>
                         @endguest
                     </ul>
-                <button type="button" class="btn btn-primary" style="z-index: 100" id="sidebar-btn2">Primary</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
             </div>
         </nav>
 
@@ -67,9 +79,11 @@
             @yield('content')
         </main>
     </div>
-</div>
+      </div>
+</nav>
 <div id="map" class="w-100" style="height: 100%;">
 </div>
+.show();
 <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
 <script>
@@ -96,7 +110,7 @@ var myIcon2 = DG.icon({
     iconAnchor: [9, 47],
     popupAnchor: [-3, -76],
     shadowUrl: 'images/marker.png',
-    shadowRetinaUrl: 'images/marker.png',
+    shadowRetinaUrl: 'images/marker2.png',
     shadowSize: [70, 70],
     shadowAnchor: [22, 55]
 });
@@ -107,20 +121,9 @@ group = DG.featureGroup(marker1);
 group.addTo(map);
 group.on('click', function(e) {
     map.setView([e.latlng.lat, e.latlng.lng]);
+
 });
 });
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-  $('#sidebar-btn').click(function() {
-    $('#sidebar').fadeIn('slow');
-    $('#sidebar').toggleClass('visible');
-  });
-  $('#sidebar-btn2').click(function() {
-    console.log("asdasd");
-    $('#sidebar').removeClass('visible');
-    $('#sidebar').fadeOut('slow');
-  });
 </script>
 </body>
 </html>
